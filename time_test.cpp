@@ -15,7 +15,6 @@ string logged_day;
 time_t t = time(0);
 tm* now = localtime(&t);
 int current_day = now->tm_mday;
-cout << current_day;
 
 fstream log;
 log.open("log");
@@ -25,10 +24,10 @@ log.close();
 cin.ignore();
 
 days_since = current_day - logged_day_int;
-cout << days_since << endl;
+cout << "Last time you ran was " << days_since << " days ago." << endl;
 
 string ran;
-cout << "Did you go for run today??" << endl;
+cout << "\nDid you go for run today??" << endl;
 cin >> ran;
 
 if (ran=="Y") {
