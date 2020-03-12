@@ -1,4 +1,4 @@
 #!/bin/bash
 
-./a.out
+./.bin/run/a.out
 
