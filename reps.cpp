@@ -23,7 +23,11 @@ logged_day_int = stoi(logged_day);
 log.close();
 cin.ignore();
 
+bool nm = false;
+if( logged_day_int > current_day ){ days_since = current_day + ( 30 - logged_day_int ); nm=true; }
+else{
 days_since = current_day - logged_day_int;
+}
 
 cout << "Last run was: " << days_since << " days ago." << endl;
 
@@ -35,10 +39,39 @@ if (
 ran=="Y"||"y"||"yes"||"Yes"||"YES" 
 ) 
 {
+    if(nm){ 
+        cout << "nm is true";
+        fstream distance;   
+        distance.open("distance");
+        distance << 0;
+        distance.close();
+    }
+    
 	fstream log;
 	log.open("log");
 	log << current_day;
 	log.close();
+
+    string l;
+    int k,l_int,n;
+
+    cout << "Number of Kilometers ran: ";
+    cin >> k;
+
+    fstream distance;
+    distance.open("distance");
+    getline(distance,l);
+    l_int = stoi(l);
+    n = l_int + k;
+    distance << n;
+    distance.close();
+    cin.ignore();
+
+    distance.open("distance");
+    distance << n;
+    distance.close();
+    
+    cout << "\nTotal distance ran this month: " << n << "km" << endl;
 }
 
 cout << "\n\033[1;34mDaily reps\033[0m" << endl;
@@ -51,25 +84,25 @@ cin >> pull;
 
 if(
 chin+pull <=10
-){cout<<"\n\033[1mTerrible\n"<<endl;}
+){cout<<"\n\033[1mTerrible\n";}
 else if(
 chin+pull > 10 && chin+pull < 20
-){cout<<"\nMediocre\n"<<endl;}
+){cout<<"\n\033[1mMediocre\n";}
 else if(
 chin+pull > 20 && chin+pull < 30
-){cout<<"\nGood\n"<<endl;}
+){cout<<"\n\033[1mGood\n";}
 else if(
 chin+pull > 30
-){cout<<"\nBrilliant\n"<<endl;}
+){cout<<"\n\033[1mBrilliant";}
 
-cout << "Enter press-up reps: ";
+cout << "\n\033[0mEnter press-up reps: ";
 cin >> press;
 
 if(
 press <=20
-){cout<<"\nGet down and give me 100!\n";}
+){cout<<"\n\033[1mGet down and give me 100!\n";}
 else if(
 press >=100
-){cout<<"\nWell done\n";}
+){cout<<"\n\033[1mWell done\n";}
 
 }
