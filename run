@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
-cd ~/.bin/run && ./a.out
+/home/jacob/programme/cpp/exercise-logger//a.out
 

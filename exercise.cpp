@@ -31,22 +31,22 @@ days_since = current_day - logged_day_int;
 
 cout << "Last run was: " << days_since << " days ago." << endl;
 
-string ran;
+string ran = "";
 cout << "\nDid you run today? ";
 cin >> ran;
 
 if (
-ran=="Y"||"y"||"yes"||"Yes"||"YES" 
-) 
+ran=="Y"||"y"||"yes"||"Yes"||"YES"
+)
 {
-    if(nm){ 
+    if(nm){
         cout << "nm is true";
-        fstream distance;   
+        fstream distance;
         distance.open("distance");
         distance << 0;
         distance.close();
     }
-    
+
 	fstream log;
 	log.open("log");
 	log << current_day;
@@ -70,9 +70,10 @@ ran=="Y"||"y"||"yes"||"Yes"||"YES"
     distance.open("distance");
     distance << n;
     distance.close();
-    
+
     cout << "\nTotal distance ran this month: " << n << "km" << endl;
 }
+else if(days_since > 3){cout<<"Go run."}
 
 cout << "\n\033[1;34mDaily reps\033[0m" << endl;
 
